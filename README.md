@@ -50,3 +50,10 @@ export default function App() {
 - **TemplateNotFound**: 404 page template.
 
 - **ScrollToTop**: Scrolls window to top on route change.
+
+## License
+
+This library is **privative**. Only authorized users may use, copy, or modify this library.  
+Please see the [LICENSE](./LICENSE) file for full terms and conditions.  
+
+> Note: Even though this package is published on npm, it is **not open source** and its use is restricted to authorized users only.
