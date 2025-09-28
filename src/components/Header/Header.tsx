@@ -38,18 +38,20 @@ export default function Header({
       </button>
 
       <div className={`${style.links} ${isOpen ? style.open : ''}`}>
-        {links.map((link) => (
-          <NavLink
-            key={link.path}
-            onClick={() => setIsOpen(false)}
-            className={({ isActive }) =>
-              isActive ? `${style.link} ${style.active}` : style.link
-            }
-            to={link.path}
-          >
-            {link.label}
-          </NavLink>
-        ))}
+        <div className={style.contentLink}>
+          {links.map((link) => (
+            <NavLink
+              key={link.path}
+              onClick={() => setIsOpen(false)}
+              className={({ isActive }) =>
+                isActive ? `${style.link} ${style.active}` : style.link
+              }
+              to={link.path}
+            >
+              {link.label}
+            </NavLink>
+          ))}
+        </div>
 
         <SocialMedia size={socialSize} color={socialColor} />
       </div>
