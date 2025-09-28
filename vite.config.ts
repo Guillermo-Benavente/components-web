@@ -1,24 +1,31 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
+import path from "path";
 
 export default defineConfig({
-  plugins: [react(), dts()],
-  build: {
-    lib: {
-      entry: "src/index.ts",
-      name: "ComponentsWeb",
-      fileName: (format) => `components-web.${format}.js`,
-    },
-    rollupOptions: {
-      external: ["react", "react-dom", "react-router-dom"],
-      output: {
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-          "react-router-dom": "ReactRouterDOM",
+    plugins: [
+        react(),
+        dts({
+            insertTypesEntry: true,
+        }),
+    ],
+    build: {
+        lib: {
+            entry: path.resolve(__dirname, "src/index.ts"),
+            name: "ComponentsWeb",
+            fileName: (format) => `components-web.${format}.js`,
+            formats: ["es", "umd"],
         },
-      },
+        rollupOptions: {
+            external: ["react", "react-dom", "react-router-dom"],
+            output: {
+                globals: {
+                    react: "React",
+                    "react-dom": "ReactDOM",
+                    "react-router-dom": "ReactRouterDOM",
+                },
+            },
+        },
     },
-  },
 });
