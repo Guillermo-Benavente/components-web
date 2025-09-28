@@ -1,0 +1,12 @@
+Copyright (c) 2025 Guillermo Benavente Mora
+
+All rights reserved. No part of this code may be used, copied,
+distributed, or modified without prior authorization from the author.
+
+This project includes the following open-source packages:
+- react
+- react-dom
+- react-router-dom
+- react-icons
+
+These packages retain their original licenses.

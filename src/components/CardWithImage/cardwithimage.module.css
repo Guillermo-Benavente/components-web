@@ -1,0 +1,49 @@
+.contain {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+.contain>* {
+    flex: 1;
+}
+
+.contain>img {
+    box-sizing: border-box;
+    height: auto;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.contain .context {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 810px) {
+    .contain.reverse {
+        flex-direction: row-reverse;
+    }
+
+    .contain>img {
+        max-width: 600px;
+    }
+
+    .heightImg {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 810px) {
+    .contain {
+        flex-direction: column;
+    }
+
+    
+}

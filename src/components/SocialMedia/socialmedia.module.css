@@ -1,0 +1,15 @@
+.content {
+    display: flex;
+    align-items: center;
+}
+
+.content a {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background .3s ease;
+}
+
+.content a:hover {
+    background: #ffffff33;
+}

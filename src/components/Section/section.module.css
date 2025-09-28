@@ -1,0 +1,24 @@
+.section {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 50px 10px;
+}
+
+@media (min-width: 810px) {
+    .section {
+        height: calc(100vh - 58px);
+    }
+
+    .section.heightSection {
+        height: calc(50vh - 29px);
+    }
+}
+
+@media (max-width: 810px) {
+    .section {
+        height: min-content;
+    }
+}
