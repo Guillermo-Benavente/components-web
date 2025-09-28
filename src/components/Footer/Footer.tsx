@@ -7,7 +7,7 @@ type FooterProps = {
   className?: string;
 };
 
-export function Footer({
+export default function Footer({
   year = new Date().getFullYear(),
   author = 'Nombre del Artista',
   creditText = 'Todos los derechos reservados.',

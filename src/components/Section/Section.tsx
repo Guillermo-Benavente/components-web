@@ -10,7 +10,7 @@ type SectionProps = {
   isHalf?: boolean;
 };
 
-export function Section({
+export default function Section({
   children,
   className = '',
   bgImage,

@@ -20,7 +20,7 @@ const iconMap = {
   Tiktok: SiTiktok
 };
 
-export function SocialMedia({
+export default function SocialMedia({
   size = 24,
   color = '#EEE',
   links = [

@@ -9,7 +9,7 @@ type CardWithImageProps = {
   isHalf?: boolean;
 };
 
-export function CardWithImage({
+export default function CardWithImage({
   title,
   description,
   image,

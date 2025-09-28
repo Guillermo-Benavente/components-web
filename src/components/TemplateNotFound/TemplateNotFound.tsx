@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Template } from '../Template/Template';
-import { Section } from '../Section/Section';
+import Template from '../Template/Template';
+import Section from '../Section/Section';
 import style from './templatenotfound.module.css';
 
-export function TemplateNotFound() {
+export default function TemplateNotFound() {
     return (
         <Template>
             <Section className={style.section}>

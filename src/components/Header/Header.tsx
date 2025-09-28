@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { HiOutlineMenu } from 'react-icons/hi';
-import { SocialMedia } from '../SocialMedia/SocialMedia';
+import SocialMedia from '../SocialMedia/SocialMedia';
 import style from './header.module.css';
 
 type LinkItem = {
@@ -17,7 +17,7 @@ type HeaderProps = {
   className?: string;
 };
 
-export function Header({
+export default function Header({
   name = 'Nombre del artista',
   links = [
     { label: 'Inicio', path: '/' },
