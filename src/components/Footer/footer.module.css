@@ -13,5 +13,5 @@
 }
 
 .footer .credit span {
-  color: var(--p-color, #bbb);
+  color: var(--primary-color, #bbb);
 }
