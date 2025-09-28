@@ -5,13 +5,13 @@ Reusable React components for building web pages. All components are fully custo
 ## Installation
 
 ```bash
-npm install @guillermob/components-web
+npm install @guillermobm/components-web
 ```
 
 ## Usage
 
 ```jsx
-import { Template, Section, CardWithImage } from "@guillermob/components-web";
+import { Template, Section, CardWithImage } from "@guillermobm/components-web";
 
 export default function App() {
   return ( 
