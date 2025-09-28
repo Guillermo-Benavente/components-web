@@ -1,4 +1,4 @@
-import { ReactNode, ReactElement, Children, cloneElement, CSSProperties } from 'react';
+import { ReactNode, ReactElement, isValidElement, Children, cloneElement, CSSProperties } from 'react';
 import style from './section.module.css';
 
 type SectionProps = {
@@ -32,8 +32,11 @@ export default function Section({
       style={sectionStyle}
     >
       {Children.map(children, (child) => {
-        if (child && typeof child === 'object' && 'props' in child) {
-          return cloneElement(child as ReactElement<{ isHalf?: boolean }>, { isHalf });
+        if (isValidElement(child) && typeof child.type !== 'string') {
+          return cloneElement(
+            child as ReactElement<{ isHalf?: boolean }>,
+            { isHalf }
+          );
         }
         return child;
       })}

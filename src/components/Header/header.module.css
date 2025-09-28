@@ -3,7 +3,7 @@
     align-items: center;
     position: sticky;
     top: 0;
-    background-color: var(--header-color, #666);
+    background-color: var(--header-color, #333);
     gap: 20px;
 }
 
@@ -32,7 +32,7 @@
     color: #333;
     background: var(--primary-color, #bbb);
     font-weight: bold;
-    border-bottom: 2px solid var(--header-color);
+    border-bottom: 2px solid var(--header-color, #333);
 }
 
 .burger {
@@ -63,7 +63,7 @@
     .links {
         display: none;
         flex-direction: column;
-        background: #666;
+        background: var(--header-color, #333);
         position: absolute;
         top: 88px;
         right: 10px;
