@@ -53,7 +53,6 @@ export default function App() {
 
 ## License
 
-This library is **privative**. Only authorized users may use, copy, or modify this library.  
-Please see the [LICENSE](./LICENSE) file for full terms and conditions.  
+This library is **privative**. Only authorized users may use, copy, or modify it.  
 
 > Note: Even though this package is published on npm, it is **not open source** and its use is restricted to authorized users only.
