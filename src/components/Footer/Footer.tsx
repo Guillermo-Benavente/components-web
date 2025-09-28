@@ -1,6 +1,6 @@
 import style from './footer.module.css';
 
-type FooterProps = {
+export type FooterProps = {
   year?: number;
   author?: string;
   creditText?: string;

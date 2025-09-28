@@ -9,7 +9,7 @@ type LinkItem = {
   path: string;
 };
 
-type HeaderProps = {
+export type HeaderProps = {
   name?: string;
   links?: LinkItem[];
   socialSize?: number;

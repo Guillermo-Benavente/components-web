@@ -1,17 +1,19 @@
 import { ReactNode } from 'react';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import Header, { HeaderProps } from '../Header/Header';
+import Footer, { FooterProps } from '../Footer/Footer';
 
 type TemplateProps = {
   children: ReactNode;
+  header?: HeaderProps;
+  footer?: FooterProps;
 };
 
-export default function Template({ children }: TemplateProps) {
+export default function Template({ children, header, footer }: TemplateProps) {
   return (
     <>
-      <Header />
+      <Header {...header} />
       {children}
-      <Footer />
+      <Footer {...footer} />
     </>
   );
 }
