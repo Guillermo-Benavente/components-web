@@ -50,6 +50,11 @@
         justify-content: space-around;
     }
 
+    .header h2 {
+        min-width: 190px;
+        text-align: center;
+    }
+
     .links {
         display: flex;
         gap: 20px;
