@@ -10,6 +10,7 @@ type SectionProps = {
   isHalf?: boolean;
   height?: string;
   heightHalf?: string;
+  heightMobile?: string;
 };
 
 export default function Section({
@@ -20,11 +21,13 @@ export default function Section({
   isHalf = false,
   height,
   heightHalf,
+  heightMobile,
 }: SectionProps) {
 
   const varBgImage = {
-    '--section-height': height,           // opcional
+    '--section-height': height,
     '--section-height-half': heightHalf,
+    '--section-height-mobile': heightMobile,
     '--section-bg-image': `linear-gradient(var(--secondary-color-transparent, #666666bb), var(--secondary-color-transparent, #666666bb)), url(${bgImage})`
   } as React.CSSProperties;
 

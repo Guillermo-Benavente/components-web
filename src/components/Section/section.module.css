@@ -30,6 +30,6 @@
 
 @media (max-width: 810px) {
     .section {
-        height: min-content;
+        height: var(--section-height-mobile, min-content);
     }
 }
