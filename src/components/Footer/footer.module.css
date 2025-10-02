@@ -1,6 +1,6 @@
 .footer {
   background: var(--footer-color, #333);
-  color: #eee;
+  color: var(--secondary-text-color, #eee);
   padding: 15px;
   text-align: center;
   font-size: 0.9rem;
@@ -8,7 +8,7 @@
 
 .footer .credit {
   font-size: 0.8rem;
-  color: #aaa;
+  color: var(--footer-credit-color, #aaa);
   margin-top: 5px;
 }
 

@@ -18,13 +18,13 @@ export type HeaderProps = {
 };
 
 export default function Header({
-  name = 'Nombre del artista',
+  name = 'Nombre',
   links = [
     { label: 'Inicio', path: '/' },
     { label: 'Sobre mí', path: '/about' },
   ],
-  socialSize = 20,
-  socialColor = '#eeeeeedd',
+  socialSize,
+  socialColor,
   className = ''
 }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);

@@ -21,8 +21,8 @@ const iconMap = {
 };
 
 export default function SocialMedia({
-  size = 24,
-  color = '#EEE',
+  size = 20,
+  color = '#eeeeeedd',
   links = [
     { icon: 'X', url: '' },
     { icon: 'Instagram', url: '' },
@@ -41,7 +41,8 @@ export default function SocialMedia({
             href={link.url}
             target='_blank'
             rel='noopener noreferrer'
-            style={{ width: `${size}px`, height: `${size}px` }}
+            className={style.size}
+            style={{'--socialmedia-size': `${size}px`} as React.CSSProperties}
           >
             <Icon size={size} color={color} />
           </a>

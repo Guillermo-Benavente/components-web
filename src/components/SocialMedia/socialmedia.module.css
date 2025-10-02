@@ -13,3 +13,8 @@
 .content a:hover {
     background: #ffffff33;
 }
+
+.size {
+    width: var(--socialmedia-size); 
+    height: var(--socialmedia-size);
+}

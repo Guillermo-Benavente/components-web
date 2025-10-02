@@ -1,4 +1,4 @@
-import { ReactNode, ReactElement, isValidElement, Children, cloneElement, CSSProperties } from 'react';
+import { ReactNode, ReactElement, isValidElement, Children, cloneElement } from 'react';
 import style from './section.module.css';
 
 type SectionProps = {
@@ -8,28 +8,34 @@ type SectionProps = {
   isWhite?: boolean;
   isSecondary?: boolean;
   isHalf?: boolean;
+  height?: string;
+  heightHalf?: string;
 };
 
 export default function Section({
   children,
   className = '',
   bgImage,
-  isWhite = false,
   isSecondary = false,
   isHalf = false,
+  height,
+  heightHalf,
 }: SectionProps) {
-  const sectionStyle: CSSProperties = {
-    backgroundImage: bgImage
-      ? `linear-gradient(var(--secondary-color-transparent, #666666bb), var(--secondary-color-transparent, #666666bb)), url(${bgImage})`
-      : undefined,
-    color: isWhite ? '#eee' : '#333',
-    backgroundColor: isSecondary ? 'var(--secondary-color, #666)' : 'var(--primary-color, #bbb)',
-  };
+
+  const varBgImage = {
+    '--section-height': height,           // opcional
+    '--section-height-half': heightHalf,
+    '--section-bg-image': `linear-gradient(var(--secondary-color-transparent, #666666bb), var(--secondary-color-transparent, #666666bb)), url(${bgImage})`
+  } as React.CSSProperties;
 
   return (
     <section
-      className={`${style.section} ${isHalf ? style.heightSection : ''} ${className}`}
-      style={sectionStyle}
+      className={`
+        ${style.section} 
+        ${isHalf ? style.heightSection : ''} 
+        ${isSecondary ? style.secondarySection : ''} 
+        ${className}`}
+      style={varBgImage}
     >
       {Children.map(children, (child) => {
         if (isValidElement(child) && typeof child.type !== 'string') {

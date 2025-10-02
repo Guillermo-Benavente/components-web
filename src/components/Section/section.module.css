@@ -1,19 +1,30 @@
 .section {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     overflow: hidden;
     box-sizing: border-box;
     padding: 50px 10px;
+    color: var(--primary-text-color, #333);
+    background-color: var(--primary-color, #bbb);
+}
+
+.secondarySection {
+    background-color: var(--secondary-color, #666);
+    color: var(--secondary-text-color, #eee);
+}
+
+.backgroundSection {
+    background: var(--section-bg-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 @media (min-width: 810px) {
     .section {
-        height: calc(100vh - 58px);
+        height: var(--section-height, calc(100vh - 58px));
     }
 
     .section.heightSection {
-        height: calc(50vh - 29px);
+        height: var(--section-height-half, calc(50vh - 29px));
     }
 }
 

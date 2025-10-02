@@ -1,8 +1,8 @@
+import { ReactNode } from 'react';
 import style from './cardwithimage.module.css';
 
 type CardWithImageProps = {
-  title: string;
-  description: string;
+  children: ReactNode;
   image: string;
   imageAlt?: string;
   isReverse?: boolean;
@@ -10,8 +10,7 @@ type CardWithImageProps = {
 };
 
 export default function CardWithImage({
-  title,
-  description,
+  children,
   image,
   imageAlt = '',
   isReverse = false,
@@ -20,8 +19,7 @@ export default function CardWithImage({
   return (
     <div className={`${style.contain} ${isReverse ? style.reverse : ''}`}>
       <div className={style.context}>
-        <h2>{title}</h2>
-        <p>{description}</p>
+        {children}
       </div>
       <img
         src={image}
