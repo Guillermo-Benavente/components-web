@@ -16,20 +16,16 @@ import { Template, Section, CardWithImage } from "@guillermobm/components-web";
 export default function App() {
   return ( 
     <Template>
-            <Section
-                bgImage={'backgroundImage.png'}
-                isWhite
-            >
-                <h1>Home page</h1>
-            </Section>
-            <Section>
-                <CardWithImage
-                    title={'Title of the topic'}
-                    description={'description'}
-                    image={'DescriptiveImageOfTheTopic.png'}
-                />
-            </Section>
-        </Template>
+        <Section bgImage={'backgroundImage.png'}>
+            <h1>Home page</h1>
+        </Section>
+        <Section>
+            <CardWithImage image={'DescriptiveImageOfTheTopic.png'}>
+                <h2>Title of the topic</h2>
+                <p>description</p>
+            </CardWithImage>
+        </Section>
+    </Template>
   );
 }
 ```

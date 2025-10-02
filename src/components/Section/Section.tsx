@@ -33,7 +33,8 @@ export default function Section({
       className={`
         ${style.section} 
         ${isHalf ? style.heightSection : ''} 
-        ${isSecondary ? style.secondarySection : ''} 
+        ${isSecondary ? style.secondarySection : ''}
+        ${bgImage ? style.backgroundSection: ''}
         ${className}`}
       style={varBgImage}
     >
