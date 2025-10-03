@@ -5,6 +5,7 @@
     top: 0;
     background-color: var(--header-color, #333);
     gap: 20px;
+    z-index: 1;
 }
 
 .header h2 {

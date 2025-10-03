@@ -6,7 +6,7 @@ type SocialMediaItem = {
   url: string;
 };
 
-type SocialMediaProps = {
+export type SocialMediaProps = {
   size?: number;
   color?: string;
   links?: SocialMediaItem[];

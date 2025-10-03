@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { HiOutlineMenu } from 'react-icons/hi';
-import SocialMedia from '../SocialMedia/SocialMedia';
+import SocialMedia, { SocialMediaProps } from '../SocialMedia/SocialMedia';
 import style from './header.module.css';
 
 type LinkItem = {
@@ -12,8 +12,7 @@ type LinkItem = {
 export type HeaderProps = {
   name?: string;
   links?: LinkItem[];
-  socialSize?: number;
-  socialColor?: string;
+  socialMedia?: SocialMediaProps
   className?: string;
 };
 
@@ -23,8 +22,7 @@ export default function Header({
     { label: 'Inicio', path: '/' },
     { label: 'Sobre mí', path: '/about' },
   ],
-  socialSize,
-  socialColor,
+  socialMedia,
   className = ''
 }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,7 +51,7 @@ export default function Header({
           ))}
         </div>
 
-        <SocialMedia size={socialSize} color={socialColor} />
+        <SocialMedia {...socialMedia} />
       </div>
     </header>
   );

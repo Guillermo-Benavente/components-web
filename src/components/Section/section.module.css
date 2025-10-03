@@ -12,10 +12,22 @@
 }
 
 .backgroundSection {
-    background: var(--section-bg-image);
+    position: relative;
+    background: var(--section-bg-image, --section-carrusel-bg-image);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    transition: background-image 2.5s ease-in-out;
+    z-index: -2;
+}
+
+.backgroundSection::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(var(--secondary-color-transparent, #666666bb), var(--secondary-color-transparent, #666666bb));
+    z-index: -1;
 }
 
 @media (min-width: 810px) {
