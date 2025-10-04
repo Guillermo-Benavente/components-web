@@ -35,13 +35,6 @@
     background: var(--primary-color-transparent, #bbbbbbbb);
 }
 
-.header .link.active {
-    color: #333;
-    background: var(--primary-color-transparent-active, #bbb);
-    font-weight: bold;
-    border-bottom: 2px solid var(--header-color-transparent, #333);
-}
-
 .burger {
     display: none;
     background: none;
@@ -55,6 +48,17 @@
     .header {
         padding: 0 20px;
         justify-content: space-around;
+    }
+
+    .header .link.active {
+        color: #333;
+        background: var(--primary-color-transparent-active, #bbb);
+        font-weight: bold;
+        border-bottom: 2px solid var(--header-color, #333);
+    }
+
+    .header.glass .link.active {
+        border-bottom: 2px solid var(--header-color-transparent, #333333bb);
     }
 
     .header h2 {
@@ -81,6 +85,12 @@
         justify-content: space-between;
     }
 
+    .header .link.active {
+        color: #333;
+        background: var(--primary-color-transparent-active, #bbb);
+        font-weight: bold;
+    }
+
     .links {
         display: none;
         flex-direction: column;
@@ -91,6 +101,13 @@
         padding: 10px;
         gap: 10px;
         border-radius: 5px;
+        min-width: 150px;
+    }
+
+    .linksGlass {
+        background-color: var(--header-color-transparent, #333333bb);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
     }
 
     .contentLink {

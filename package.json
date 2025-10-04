@@ -1,6 +1,6 @@
 {
   "name": "@guillermobm/components-web",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Reusable React components for web pages.",
   "main": "dist/components-web.umd.js",
   "module": "dist/components-web.es.js",

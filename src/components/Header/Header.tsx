@@ -30,14 +30,14 @@ export default function Header({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className={`${style.header} ${isGlass? style.glass : ''} ${className}`}>
+    <header className={`${style.header} ${isGlass ? style.glass : ''} ${className}`}>
       <h2>{name}</h2>
 
       <button className={style.burger} onClick={() => setIsOpen(!isOpen)}>
         <HiOutlineMenu />
       </button>
 
-      <div className={`${style.links} ${isOpen ? style.open : ''}`}>
+      <div className={`${style.links} ${isGlass ? style.linksGlass : ''} ${isOpen ? style.open : ''}`}>
         <div className={style.contentLink}>
           {links.map((link) => (
             <NavLink
