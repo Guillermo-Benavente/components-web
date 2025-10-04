@@ -14,6 +14,7 @@ export type HeaderProps = {
   links?: LinkItem[];
   socialMedia?: SocialMediaProps
   className?: string;
+  isGlass?: boolean;
 };
 
 export default function Header({
@@ -23,12 +24,13 @@ export default function Header({
     { label: 'Sobre mí', path: '/about' },
   ],
   socialMedia,
-  className = ''
+  className = '',
+  isGlass = false,
 }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className={`${style.header} ${className}`}>
+    <header className={`${style.header} ${isGlass? style.glass : ''} ${className}`}>
       <h2>{name}</h2>
 
       <button className={style.burger} onClick={() => setIsOpen(!isOpen)}>

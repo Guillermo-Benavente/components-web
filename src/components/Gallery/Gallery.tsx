@@ -1,84 +1,80 @@
-import { useState } from "react";
-import { FiX } from "react-icons/fi";
+import { useState, useEffect } from "react";
 import style from "./gallery.module.css";
 
+type ImageType = {
+    url: string;
+    alt: string;
+    name: string;
+    size: string;
+    technique: string;
+    description: string;
+};
+
 type GalleryProps = {
-    images: {
-        url: string;
-        alt: string;
-        description: string;
-    }[];
-    imageSize: string;
+    images: ImageType[];
+    defaultColumns?: number;
 };
 
 declare module "react" {
     interface HTMLAttributes<T> {
-        command?: string;
-        commandfor?: string;
         closedby?: string;
     }
 }
 
-export default function Gallery({ 
-    images,
-    imageSize,
-}: GalleryProps) {
-    const [selectedImage, setSelectedImage] = useState<{
-        url: string;
-        alt: string;
-    } | null>(null);
 
-    const chargeImage = (image: { url: string; alt: string }) => {
-        setSelectedImage(image);
-    };
+export default function MasonryGallery({ images, defaultColumns = 4 }: GalleryProps) {
+    const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
+    const [columns, setColumns] = useState(defaultColumns);
 
-    const varCss = {
-    '--gallery-width-img': imageSize
-  } as React.CSSProperties;
+    useEffect(() => {
+        const updateColumns = () => {
+            const width = window.innerWidth;
+            if (width < 480) setColumns(1);
+            else if (width < 768) setColumns(2);
+            else if (width < 1024) setColumns(3);
+            else setColumns(defaultColumns);
+        };
+        updateColumns();
+        window.addEventListener("resize", updateColumns);
+        return () => window.removeEventListener("resize", updateColumns);
+    }, [defaultColumns]);
 
     return (
         <>
-            <div className={style.gallery} style={varCss}>
-                {images.map((img, index) => (
+            <div
+                className={style.masonryGallery}
+                style={{ columnCount: columns, columnGap: "16px" }}
+            >
+                {images.map((img, idx) => (
                     <button
-                        key={index}
+                        key={idx}
                         className={style.imageWrapper}
-                        commandfor="showImage"
-                        command="show-modal"
-                        closedby="any"
-                        onClick={() => chargeImage(img)}
+                        onClick={() => setSelectedImage(img)}
                     >
-                        <img
-                            src={img.url}
-                            alt={img.alt}
-                            className={style.image}
-                        />
-                        <p className={style.description}>{img.description}</p>
+                        <img src={img.url} alt={img.alt} className={style.image} />
+                        <div className={style.description}>
+                            <h3>{img.name}{img.technique ? ` - ${img.technique}` : ''}</h3>
+                            <p>{img.description}</p>
+                            <small className={style.size}>{img.size}</small>
+                        </div>
                     </button>
                 ))}
             </div>
 
-            <dialog
-                id="showImage"
-                className={style.dialog}
-                inert={!selectedImage}
+            <dialog 
+                className={style.dialog} 
+                inert={!selectedImage} 
+                open={!!selectedImage}
+                onClick={() => setSelectedImage(null)}
             >
                 {selectedImage && (
-                    <>
-                        <button
-                            className={style.closeButton}
-                            commandfor="showImage"
-                            command="close"
-                            aria-label="Cerrar"
-                        >
-                            <FiX size={20} />
-                        </button>
+                    <div className={style.fullImageWrapper}>
                         <img
                             src={selectedImage.url}
                             alt={selectedImage.alt}
                             className={style.fullImage}
                         />
-                    </>
+                    </div>
                 )}
             </dialog>
         </>

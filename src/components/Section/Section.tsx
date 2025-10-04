@@ -30,19 +30,35 @@ export default function Section({
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % carruselUrls.length);
-    }, carruselTime * 1000);
+    if (carruselUrls && carruselUrls.length > 0) {
+      const interval = setInterval(() => {
+        setCurrent((prev) => {
+          const nextIndex = (prev + 1) % carruselUrls.length;
 
-    return () => clearInterval(interval);
+          const img = new Image();
+          img.src = carruselUrls[nextIndex];
+          img.onload = () => setCurrent(nextIndex);
+
+          return prev;
+        });
+      }, carruselTime * 1000);
+
+      return () => clearInterval(interval);
+    }
   }, [carruselUrls, carruselTime]);
 
   const varCss = {
     '--section-height': height,
     '--section-height-half': heightHalf,
     '--section-height-mobile': heightMobile,
-    '--section-carrusel-bg-image': `url(${carruselUrls[current]})`,
-    '--section-bg-image': `linear-gradient(var(--secondary-color-transparent, #666666bb), var(--secondary-color-transparent, #666666bb)), url(${bgImage})`
+    ...(carruselUrls && carruselUrls.length > 0
+      ? { '--section-carrusel-bg-image': `url(${carruselUrls[current]})` }
+      : {}),
+    ...(bgImage
+      ? {
+        '--section-bg-image': `linear-gradient(var(--secondary-color-transparent, #666666bb), var(--secondary-color-transparent, #666666bb)), url(${bgImage})`,
+      }
+      : {}),
   } as React.CSSProperties;
 
   return (

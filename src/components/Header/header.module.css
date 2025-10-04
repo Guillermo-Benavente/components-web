@@ -5,7 +5,13 @@
     top: 0;
     background-color: var(--header-color, #333);
     gap: 20px;
-    z-index: 1;
+    z-index: 2;
+}
+
+.glass {
+    background-color: var(--header-color-transparent, #333333bb);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }
 
 .header h2 {
@@ -31,9 +37,9 @@
 
 .header .link.active {
     color: #333;
-    background: var(--primary-color, #bbb);
+    background: var(--primary-color-transparent-active, #bbb);
     font-weight: bold;
-    border-bottom: 2px solid var(--header-color, #333);
+    border-bottom: 2px solid var(--header-color-transparent, #333);
 }
 
 .burger {

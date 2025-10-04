@@ -13,7 +13,7 @@
 
 .backgroundSection {
     position: relative;
-    background: var(--section-bg-image, --section-carrusel-bg-image);
+    background: var(--section-bg-image, var(--section-carrusel-bg-image));
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
