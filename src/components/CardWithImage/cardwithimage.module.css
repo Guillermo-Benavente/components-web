@@ -42,5 +42,7 @@
         flex-direction: column;
     }
 
-    
+    .contain>picture>* {
+        width: 100%;
+    }
 }
