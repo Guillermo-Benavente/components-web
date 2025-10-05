@@ -11,7 +11,7 @@
     flex: 1;
 }
 
-.contain>img {
+.contain>picture>* {
     box-sizing: border-box;
     height: auto;
     object-fit: contain;
@@ -31,12 +31,9 @@
         flex-direction: row-reverse;
     }
 
-    .contain>img {
+    .contain>picture>* {
         max-width: 600px;
-    }
-
-    .heightImg {
-        padding: 50px;
+        height: 100%;
     }
 }
 

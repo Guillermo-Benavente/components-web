@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import style from "./gallery.module.css";
 
+type ImageSet = {
+    avif: string;
+    webp: string;
+    jpg: string;
+};
+
 type ImageType = {
-    url: string;
+    url: ImageSet;
     alt: string;
     name: string;
     size: string;
@@ -51,7 +57,11 @@ export default function MasonryGallery({ images, defaultColumns = 4 }: GalleryPr
                         className={style.imageWrapper}
                         onClick={() => setSelectedImage(img)}
                     >
-                        <img src={img.url} alt={img.alt} className={style.image} />
+                        <picture className={style.image}>
+                            <source srcSet={img.url.avif} type="image/avif" />
+                            <source srcSet={img.url.webp} type="image/webp" />
+                            <img src={img.url.jpg} alt={img.alt} loading="lazy"/>
+                        </picture>
                         <div className={style.description}>
                             <h3>{img.name}{img.technique ? ` - ${img.technique}` : ''}</h3>
                             <p>{img.description}</p>
@@ -61,20 +71,18 @@ export default function MasonryGallery({ images, defaultColumns = 4 }: GalleryPr
                 ))}
             </div>
 
-            <dialog 
-                className={style.dialog} 
-                inert={!selectedImage} 
+            <dialog
+                className={style.dialog}
+                inert={!selectedImage}
                 open={!!selectedImage}
                 onClick={() => setSelectedImage(null)}
             >
                 {selectedImage && (
-                    <div className={style.fullImageWrapper}>
-                        <img
-                            src={selectedImage.url}
-                            alt={selectedImage.alt}
-                            className={style.fullImage}
-                        />
-                    </div>
+                    <picture className={`${style.fullImageWrapper} ${style.fullImage}`}>
+                        <source srcSet={selectedImage.url.avif} type="image/avif" />
+                        <source srcSet={selectedImage.url.webp} type="image/webp" />
+                        <img src={selectedImage.url.jpg} alt={selectedImage.alt} />
+                    </picture>
                 )}
             </dialog>
         </>
